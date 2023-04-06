@@ -8,6 +8,8 @@ packages = [{include = "cli_tui_eg_py"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+argparse = "^1.4.0"
+pyinquirer = "^1.0.3"
 
 
 [build-system]
