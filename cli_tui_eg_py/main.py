@@ -1,9 +1,7 @@
 import argparse
 from InquirerPy import prompt, inquirer
 
-def _parse_arguments(
-  args_as_list=None
-):
+def _parse_arguments(args_as_list=None):
   """Function which parses arguments from stdin (or list of args).
 
   :param args_as_list: When set, parser reads from `args_as_list` and not stdin, defaults to None
