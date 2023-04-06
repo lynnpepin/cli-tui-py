@@ -1,6 +1,5 @@
 import argparse
 
-
 def _parse_arguments(
   args_as_list=None
 ):
@@ -9,21 +8,9 @@ def _parse_arguments(
   :param args_as_list: When set, parser reads from `args_as_list` and not stdin, defaults to None
   :type args_as_list: List of string, optional
 
-
-  E.g. `args_as_list` can be provided to run the parser from other Python code.
-  # from shell:
-  python main.py -s Hello -n 100 -b -l 1 10 2
-  
-  # or from other Python code:
-  _parse_arguments(
-    ['-s', 'Hello', '-n', '100', '-b', '-l', '1', '10', '2']
-  )
-
   :return: Dictionary of arguments
   :rtype: Dict
   """
-
-  # Instantiate argparser
   parser = argparse.ArgumentParser(
     description="Put your description here"
   )
@@ -71,9 +58,6 @@ def _parse_arguments(
   }
 
 def main(string_arg, number_arg, list_arg, bool_arg):
-  """
-  Main simply prints its arguments.
-  """
   """[Summary]
 
   :param [ParamName]: [ParamDescription], defaults to [DefaultParamVal]
@@ -92,11 +76,6 @@ def main(string_arg, number_arg, list_arg, bool_arg):
   
 
 if __name__ == '__main__':
-  '''
-  Minimal logic is kept in the top-level scope here.
-  This way, the interface is kept separate and reusable or replacable,
-  and the logic (`main()`) is kept separate and importable.
-  '''
   args_dict = _parse_arguments()
   main(
     string_arg = args_dict["string_arg"],
@@ -104,3 +83,4 @@ if __name__ == '__main__':
     list_arg   = args_dict["list_arg"],
     bool_arg   = args_dict["bool_arg"]
   )
+  # or simply: main(**args_dict)
