@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "cli-tui-eg-py"
+version = "0.1.0"
+description = ""
+authors = ["lynn <lynn@lynndotpy.xyz>"]
+readme = "README.md"
+packages = [{include = "cli_tui_eg_py"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
