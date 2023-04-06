@@ -13,5 +13,8 @@ poetry add PyInquirer
 
 # Create a requirements.txt for pip users
 poetry export --without-hashes --without dev -f requirements.txt -o requirements.txt
+
+# Run the code!
+poetry run python cli_tui_eg_py/main.py -s Hello -n 100 -b -l 1 10 2
 ```
 
