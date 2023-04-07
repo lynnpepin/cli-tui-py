@@ -4,11 +4,11 @@ import InquirerPy
 
 # Example of just using ArgParse
 def _parse_arguments(args_as_list=None):
-  """Function which parses arguments from stdin (or list of args).
+  """Method which parses arguments from stdin (or list of args).
 
-  :param args_as_list: When set, parser reads from `args_as_list` and not stdin, defaults to None
+  :param args_as_list: When set, parser reads from `args_as_list` and not stdin,
+  defaults to None
   :type args_as_list: List of string, optional
-
 
   E.g. `args_as_list` can be provided to run the parser from other Python code.
   # from shell:

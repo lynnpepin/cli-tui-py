@@ -1,63 +1,73 @@
 import argparse
+from InquirerPy import prompt, inquirer
+import InquirerPy
 
-def _parse_arguments(
-  args_as_list=None
-):
-  """Function which parses arguments from stdin (or list of args).
+# todo: consider defining a dataclass or dict
+# i.e. a struct which will hold arguments
+# (_parse_arguments --> interactive_args --> main)
 
-  :param args_as_list: When set, parser reads from `args_as_list` and not stdin, defaults to None
+# _parse_arguments --> _interactive_args --> main
+
+# Example of just using ArgParse
+def _parse_arguments(args_as_list=None):
+  """Method which parses arguments from stdin (or list of args).
+
+  :param args_as_list: When set, parser reads from `args_as_list` and not stdin,
+  defaults to None
   :type args_as_list: List of string, optional
-
   :return: Dictionary of arguments
   :rtype: Dict
   """
+
+  # Instantiate argparser
   parser = argparse.ArgumentParser(
-    description="Put your description here"
+    description="Put your description here, todo"
   )
 
-  # Add arguments
-  parser.add_argument(
-    "--string-arg", "-s",
-    default=["Howdy"],
-    help="String argument.",
-    type=str, nargs=1
-  )
-  parser.add_argument(
-    "--number_arg",
-    "-n",
-    default=[0],
-    help="Integer argument.",
-    type=int, nargs=1
-  )
-  parser.add_argument(
-    "--list_arg", "-l",
-    default=[1,2,3,4],
-    help="A list of ints",
-    type=int,
-    nargs='+' # use nargs='+' to require at least one value
-  )  
-  parser.add_argument(
-    "--bool_arg","-b",
-    default=False,
-    help="Boolean argument.",
-    action="store_true"
-  )
+  # Add arguments, todo
+  # avoid default, so _interactive_args can prompt user
+  #parser.add_argument(
+  #  "--customer", "-c",
+  #  help="Name of the customer",
+  #  type=str, nargs=1
+  #)
 
   # Parse and access arguments
-  # string and numbers are stored in lists, bools are not
   if args_as_list is None:
     args = parser.parse_args()
   else:
     args = parser.parse_args(args_as_list)
   
-  return {
-    "string_arg" : args.string_arg[0],
-    "number_arg" : args.number_arg,
-    "list_arg"   : args.list_arg,
-    "bool_arg"   : args.bool_arg
-  }
+  # todo: populate args dict. (or, consider using a dataclass)
+  raise NotImplementedError
 
-def main(string_arg, number_arg, list_arg, bool_arg):
+def _interactive_args(
+  # todo: args dict (or consider a dataclass)
+):
+  """Function which prompts user interactively for arguments.
+
+  If any parameter is provided, the user will not be prompted for that parameter.
+  
+  [Summary]
+
+  :param [ParamName]: [ParamDescription], defaults to [DefaultParamVal]
+  :type [ParamName]: [ParamType](, optional)
+  ...
+  :raises [ErrorType]: [ErrorDescription]
+  ...
+  :return: [ReturnDescription]
+  :rtype: [ReturnType]
+  """
+  
+  # todo: take in args dict (or dataclass)
+  # populate 'None' values using inquirer
+  # then return updated args dict (or dataclass)
+  raise NotImplementedError
+
+
+def main(
+  # todo: args dict (or consider a dataclass)
+):
   """[Summary]
 
   :param [ParamName]: [ParamDescription], defaults to [DefaultParamVal]
@@ -68,19 +78,20 @@ def main(string_arg, number_arg, list_arg, bool_arg):
   :return: [ReturnDescription]
   :rtype: [ReturnType]
   """
-
-  print(f"string_arg: {string_arg}")
-  print(f"number_arg: {number_arg}")
-  print(f"list_arg: {list_arg}")
-  print(f"bool_arg: {bool_arg}")
+  raise NotImplementedError
   
 
 if __name__ == '__main__':
-  args_dict = _parse_arguments()
-  main(
-    string_arg = args_dict["string_arg"],
-    number_arg = args_dict["number_arg"],
-    list_arg   = args_dict["list_arg"],
-    bool_arg   = args_dict["bool_arg"]
+  args_from_argparse = _parse_arguments()
+
+  args_from_interactive = _interactive_args(
+    # todo: pass args from argparse here
+    # if none, prompt interactively
   )
-  # or simply: main(**args_dict)
+
+  main(
+    # todo: pass args from interactive here
+  )
+
+  # if args is provided as a dataclass, you can nest these:
+  # main(_args_from_interactive(_parse_arguments()))
