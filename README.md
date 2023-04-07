@@ -18,6 +18,7 @@ poetry add InquirerPy
 poetry export --without-hashes --without dev -f requirements.txt -o requirements.txt
 
 # Run the code!
-poetry run python cli_tui_eg_py/main.py -s Hello -n 100 -b -l 1 10 2
+poetry run python cli_tui_eg_py/main.py -c Hello -k 6 -p "they/them" 
 ```
 
+This does not provide a framework which unifies `argparse` and `PyInquirer`! This just shows an example of using them both together.  
